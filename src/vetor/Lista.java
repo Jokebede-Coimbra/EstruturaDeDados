@@ -1,50 +1,36 @@
 package vetor;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Vetor {
+public class Lista<T> {
 
-    private String[] elementos;
-    private int tamanho = 0; // vai controlar o tamanho real do vetor
+    private T[] elementos;
+    private int tamanho = 0;
 
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
+    // primeira solucao, mais elegante
+    public Lista(int capacidade) {
+        this.elementos = (T[]) new Object[capacidade];
+        this.tamanho = 0;
     }
 
-    /* public void adiciona(String elemento) {
-         for (int i = 0; i < this.elementos.length; i++) {
-             if (this.elementos[i] == null) {
-                 this.elementos[i] = elemento;
-             }
-         }
-     }*/
+    // segunda solucao
+    public Lista(int capacidade, Class<T> tipoClasse) {
+        this.elementos = (T[]) Array.newInstance(tipoClasse, capacidade);
+        this.tamanho = 0;
+    }
 
-    // Melhorando o método adciona
-    /*public void adiciona(String elemento) {
-        if (this.tamanho < this.elementos.length) {
-            this.elementos[this.tamanho] = elemento; // adicinando o elemento no vetor
-            this.tamanho++; // incrementando no valor também
-        } else {
-            try {
-                throw new Exception("Não é possível adicionar elementos no vetor cheio");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-    }*/
-    // Melhorando o método adciona 2
-    public boolean adiciona(String elemento) {
+    public boolean adiciona(T elemento) {
         this.aumentaCapacidade();
         if (this.tamanho < this.elementos.length) {
-            this.elementos[this.tamanho] = elemento; // adicinando o elemento no vetor
-            this.tamanho++; // incrementando no valor também
+            this.elementos[this.tamanho] = elemento;
+            this.tamanho++;
             return true;
         }
         return false;
     }
 
-    public boolean adiciona(int posicao, String elemento) {
+    public boolean adiciona(int posicao, T elemento) {
         // Verificando se a posição é valida
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
@@ -61,10 +47,9 @@ public class Vetor {
         return false;
     }
 
-    //Só será executado quando atingir acapacidade
     private void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
-            String[] elementosNovos = new String[this.elementos.length * 2];
+            T[] elementosNovos = (T[]) new Object[this.elementos.length * 2];
             for (int i = 0; i < this.elementos.length; i++) {
                 elementosNovos[i] = this.elementos[i];
             }
@@ -72,20 +57,37 @@ public class Vetor {
         }
     }
 
-    public String busca(int posicao) {
+    // reutilizando o metodo busca
+    public T obtem(int posiaco) {
+        return this.busca(posiaco);
+    }
+
+    public T busca(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
         return this.elementos[posicao];
     }
 
-    public int busca(String elemento) {
+    public int busca(T elemento) {
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    // Melhorando o método busca
+    public boolean contem(T elemento) {
+        // opção 1
+       /* int pos = busca(elemento);
+        if (pos > -1) {
+            return true;
+        }
+        return  false; */
+        // opção 2
+        return busca(elemento) > -1; // ou  >= 0
     }
 
     // B G D E F > Posição a ser removida é 1 (G)
@@ -103,8 +105,47 @@ public class Vetor {
         this.tamanho--;
     }
 
+    public void remove(T elemento) {
+        int pos = this.busca(elemento);
+        if (pos > -1) {
+            this.remove(pos);
+
+        }
+    }
+
+    public void limpar() {
+        // opção 1
+        //  this.elementos = (T[]) new Object[this.elementos.length];
+        // opção 2
+        // this.tamanho = 0;
+        // opção 3
+        for (int i = 0; i < this.tamanho; i++) {
+            this.elementos[i] = null;
+        }
+        this.tamanho = 0;
+    }
+
     public int tamanho() {
         return this.tamanho;
+    }
+
+    public int ultimoIndice(T elemento) {
+        // opção 1 > custosa
+        /*int ultimaPos = -1;
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.elementos[i].equals(elemento)) {
+                ultimaPos = i; // atualiza
+            }
+        }
+        return ultimaPos;
+        */
+        // iterando de tras p/frente > opção 2 > melhor
+        for (int i = this.tamanho - 1; i >= 0; i--) {
+            if (this.elementos[i].equals(elemento)) {
+                return i; // atualiza
+            }
+        }
+        return -1;
     }
 
     @Override
