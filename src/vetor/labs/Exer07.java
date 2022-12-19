@@ -1,7 +1,6 @@
 package vetor.labs;
 
 import vetor.Contato;
-import vetor.Lista;
 
 import java.util.ArrayList;
 import java.util.Scanner;

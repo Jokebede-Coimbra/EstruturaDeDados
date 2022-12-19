@@ -3,7 +3,6 @@ package vetor.labs;
 import vetor.Contato;
 import vetor.Lista;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Exer06 {

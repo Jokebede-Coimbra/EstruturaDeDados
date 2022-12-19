@@ -44,7 +44,7 @@ public class Lista<T> {
         this.elementos[posicao] = elemento;
         this.tamanho++;
 
-        return false;
+        return true;
     }
 
     private void aumentaCapacidade() {

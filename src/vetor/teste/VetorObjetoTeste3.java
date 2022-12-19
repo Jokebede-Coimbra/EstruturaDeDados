@@ -2,7 +2,6 @@ package vetor.teste;
 
 import vetor.Contato;
 import vetor.Lista;
-import vetor.VetorObjetos;
 
 public class VetorObjetoTeste3 {
 
