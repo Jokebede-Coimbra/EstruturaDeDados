@@ -9,7 +9,7 @@ public class Aula15 {
 
         System.out.println(pilha.estaVazia());
 
-        pilha.empliha(14);
+        pilha.empilha(14);
 
         System.out.println(pilha.estaVazia());
     }

@@ -8,7 +8,7 @@ public class Aula14 {
         Pilha<Integer> pilha = new Pilha<Integer>();
 
         for (int i = 1; i <= 10; i++) {
-            pilha.empliha(i);
+            pilha.empilha(i);
         }
 
 

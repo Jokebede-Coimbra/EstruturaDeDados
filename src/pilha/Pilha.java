@@ -12,7 +12,7 @@ public class Pilha<T> extends EstruturaEstatica<T> {
         super(capacidade);
     }
 
-    public void empliha(T elemento) {
+    public void empilha(T elemento) {
         super.adiciona(elemento);
     }
 
@@ -20,7 +20,21 @@ public class Pilha<T> extends EstruturaEstatica<T> {
         if (this.estaVazia()) {
             return null;
         }
-        return this.elementos[tamanho -1];
+        return this.elementos[tamanho - 1];
+    }
+
+    public T desempilha() {
+
+        if (this.estaVazia()) {
+            return null;
+        }
+        // opção 1
+       /* T elemento = this.elementos[tamanho-1];
+        tamanho--;
+        return elemento; */
+
+        // opção 2 > simplificando
+        return this.elementos[--tamanho];
     }
 
 }
