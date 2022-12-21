@@ -1,6 +1,6 @@
-package Pilha.teste;
+package pilha.teste;
 
-import Pilha.Pilha;
+import pilha.Pilha;
 
 public class Aula14 {
     public static void main(String[] args) {

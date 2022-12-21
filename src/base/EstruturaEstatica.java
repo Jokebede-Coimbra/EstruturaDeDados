@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class EstruturaEstatica<T> {
 
     protected T[] elementos;
-    protected int tamanho = 0;
+    protected int tamanho;
 
 
     public EstruturaEstatica(int capacidade) {
@@ -29,7 +29,7 @@ public class EstruturaEstatica<T> {
 
     protected boolean adiciona(int posicao, T elemento) {
 
-        if (!(posicao >= 0 && posicao < tamanho)) {
+        if (posicao < 0 || posicao > tamanho) {
             throw new IllegalArgumentException("Posição inválida");
         }
         this.aumentaCapacidade();
@@ -55,6 +55,10 @@ public class EstruturaEstatica<T> {
 
     public int tamanho() {
         return this.tamanho;
+    }
+
+    public boolean estaVazia() {
+        return this.tamanho == 0;
     }
 
     @Override

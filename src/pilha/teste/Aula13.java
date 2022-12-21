@@ -1,6 +1,6 @@
-package Pilha.teste;
+package pilha.teste;
 
-import Pilha.Pilha;
+import pilha.Pilha;
 
 public class Aula13 {
 
