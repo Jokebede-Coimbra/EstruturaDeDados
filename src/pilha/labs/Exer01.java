@@ -39,26 +39,4 @@ public class Exer01 {
 
     }
 
-
-       /* Stack<Integer> stack = new Stack<>();
-        int num;
-
-        for (int i = 0; i <= 5; i++) {
-            System.out.println("Digite os números: ");
-            num = sc.nextInt();
-            if (num % 2 == 0) {
-                stack.push(num);
-            } else {
-                System.out.println(stack.pop());
-            }
-        }
-        System.out.println(stack);
-        if (stack.isEmpty()) {
-            System.out.println("A pilha está vazia!");
-        } else {
-            System.out.println(stack.pop());
-        }
-        System.out.println(stack);
-    }*/
-
 }
