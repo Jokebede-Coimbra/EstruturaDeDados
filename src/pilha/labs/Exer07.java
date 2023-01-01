@@ -63,7 +63,7 @@ public class Exer07 {
         if (base > 16) {
             throw new IllegalArgumentException();
         }
-        
+
         Stack<Integer> stack = new Stack<>();
         String numBase = "";
         int resto;
