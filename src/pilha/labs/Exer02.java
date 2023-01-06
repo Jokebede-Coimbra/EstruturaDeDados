@@ -13,7 +13,7 @@ public class Exer02 {
 
         Scanner sc = new Scanner(System.in);
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("Digite os números: ");
             int num = sc.nextInt();
 
