@@ -25,7 +25,7 @@ public class Exer04 {
 
         while (fila.tamanho() > 1) {
             for (int i = 0; i < num; i++) {
-                fila.enfileirar(fila.desenfileirar());
+                fila.enfileirar(fila.desenfileirar()); // tira do inicio p/ final
             }
             System.out.println("Eliminado = " + fila.desenfileirar());
         }

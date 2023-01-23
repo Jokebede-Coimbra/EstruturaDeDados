@@ -16,10 +16,12 @@ public class ListaEncadeadaTeste {
         lista.adiciona(3);
         System.out.println(lista);
 
-        lista.adiciona(4);
+        lista.limpar();
+        System.out.println(lista);
+      /*  lista.adiciona(4);
         System.out.println(lista);
 
         lista.limpar();
-        System.out.println(lista);
+        System.out.println(lista);*/
     }
 }

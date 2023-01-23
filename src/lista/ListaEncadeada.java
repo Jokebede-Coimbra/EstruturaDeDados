@@ -7,6 +7,8 @@ public class ListaEncadeada<T> {
     private No<T> ultimo;
     private int tamanho = 0;
 
+
+
     public void adiciona(T elemento) {
         No<T> no = new No<T>(elemento);
         if (this.tamanho == 0) { // verificando se existe algo na lista
@@ -53,7 +55,7 @@ public class ListaEncadeada<T> {
         }
         */
 
-        for (int i = 0; i < this.tamanho - 1; i++) {
+        for (int i = 0; i < this.tamanho - 1; i++) { // -1 > para no penultimo elemento da lista
             sb.append(atual.getElemento()).append(",");
             atual = atual.getProximo();
         }
